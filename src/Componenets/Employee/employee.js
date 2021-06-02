@@ -1,54 +1,64 @@
 import React from "react";
 
-
-class Employee extends React.Component{
-  constructor(props){
+class Employee extends React.Component {
+  constructor(props) {
     super(props);
     this.state = {
-      employee : this.props.employee,
-      handleCallback : this.props.handleCallback
-    } 
-   }
+      name: "",
+      age: "",
+      monday: "",
+      tuesday: "",
+      wednesday: "",
+    };
+    // this.handleChange = this.handleChange.bind(this);
+    // this.generateRoster = this.generateRoster.bind(this);
+  }
 
-  setShift = () => {
-    // console.log(this.props)
-    this.state.employee.monday = document.getElementById("monday").value;
-    this.state.employee.tuesday = document.getElementById("tuesday").value;
-    this.state.employee.wednesday = document.getElementById("wednesday").value;
-    // console.log(this.state.employee);
-    this.state.handleCallback(this.state.employee)
+  setShift = (event) => {
+    event.preventDefault();
+    this.props.handleCallback(this.state)
+  };
+  onChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+      name: this.props.employee.name,
+      age: this.props.employee.age,
+    });
   };
 
-  render(){
+  render() {
     return (
       <div>
         <h1>This is Employee Component</h1>
-        <h2>{this.state.employee.name}</h2>
-        <select id="monday">
-          <option value="General">"General"</option>
-          <option value="Night">"Night"</option>
-          <option value="Baaler">"Baaler"</option>
-          <option value="Dhur">"Nisha"</option>
-        </select>
-        <select id="tuesday">
-          <option value="General">"General"</option>
-          <option value="Night">"Night"</option>
-          <option value="Baaler">"Baaler"</option>
-          <option value="Dhur">"Nisha"</option>
-        </select>
-        <select id="wednesday">
-          <option value="General">"General"</option>
-          <option value="Night">"Night"</option>
-          <option value="Baaler">"Baaler"</option>
-          <option value="Dhur">"Nisha"</option>
-        </select>
-        <div>
-          <button onClick={this.setShift}>Set Shift</button>
-        </div>
+        <h2>{this.props.employee.name}</h2>
+        <form>
+          <div id={this.props.employee.name}>
+            <select name="monday" onChange={this.onChange}>
+              <option value="General">"General"</option>
+              <option value="Night">"Night"</option>
+              <option value="Second">"Second"</option>
+              <option value="NoShift">"NoShift"</option>
+            </select>
+            <select name="tuesday" onChange={this.onChange}>
+              <option value="General">"General"</option>
+              <option value="Night">"Night"</option>
+              <option value="Second">"Second"</option>
+              <option value="NoShift">"NoShift"</option>
+            </select>
+            <select name="wednesday" onChange={this.onChange}>
+              <option value="General">"General"</option>
+              <option value="Night">"Night"</option>
+              <option value="Second">"Second"</option>
+              <option value="NoShift">"NoShift"</option>
+            </select>
+          </div>
+          <div>
+            <button onClick={this.setShift}>Set Shift</button>
+          </div>
+        </form>
       </div>
     );
-  };
-};
-
+  }
+}
 
 export default Employee;
