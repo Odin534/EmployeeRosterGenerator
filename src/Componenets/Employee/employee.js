@@ -10,8 +10,6 @@ class Employee extends React.Component {
       tuesday: "",
       wednesday: "",
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.generateRoster = this.generateRoster.bind(this);
   }
 
   setShift = (event) => {
@@ -34,22 +32,25 @@ class Employee extends React.Component {
         <form>
           <div id={this.props.employee.name}>
             <select name="monday" onChange={this.onChange}>
-              <option value="General">"General"</option>
-              <option value="Night">"Night"</option>
-              <option value="Second">"Second"</option>
+              <option value="">Select</option>
+              <option value="General">General</option>
+              <option value="Night">Night</option>
+              <option value="Second">Second</option>
               <option value="NoShift">"NoShift"</option>
             </select>
             <select name="tuesday" onChange={this.onChange}>
-              <option value="General">"General"</option>
-              <option value="Night">"Night"</option>
-              <option value="Second">"Second"</option>
-              <option value="NoShift">"NoShift"</option>
+              <option value="">Select</option>
+              <option value="General">General</option>
+              <option value="Night">Night</option>
+              <option value="Second">Second</option>
+              <option value="NoShift">NoShift</option>
             </select>
             <select name="wednesday" onChange={this.onChange}>
-              <option value="General">"General"</option>
-              <option value="Night">"Night"</option>
-              <option value="Second">"Second"</option>
-              <option value="NoShift">"NoShift"</option>
+              <option value="">Select</option>
+              <option value="General">General</option>
+              <option value="Night">Night</option>
+              <option value="Second">Second</option>
+              <option value="NoShift">NoShift</option>
             </select>
           </div>
           <div>
