@@ -4,6 +4,9 @@ import { CSVLink } from "react-csv";
 class CSVReport extends React.Component {
   constructor(props) {
     super(props);
+    this.state={
+      employeeData:this.props.employeeData
+    }
     console.log(1,'has rendered',this.props);
   }
   CSV = {
@@ -12,8 +15,8 @@ class CSVReport extends React.Component {
     filename: "Roster.csv",
   };
   componentDidUpdate(prevProps) {
-    if (prevProps.value !== this.props.value) {
-      this.setState({ value: this.props.value });
+    if (prevProps.employeedata !== this.props.employeedata) {
+      this.setState({ employeedata: this.props.employeedata });
     }
   }
   render() {

@@ -12,8 +12,10 @@ class Home extends React.Component {
     };
   }
   handleCallback = (e) => {
-    console.log(1, e);
-    this.state.employeeRosterData.push(e);
+    console.log(2, e);
+    const temp=this.state.employeeRosterData;
+    temp.push(e)
+    this.setState({employeeRosterData:temp})
     console.log("Inside handleCallback method", this.state.employeeRosterData);
   };
 
@@ -21,9 +23,9 @@ class Home extends React.Component {
     return (
       <div>
         <h1>This is Home Component</h1>
-        {employeeData.map((employee) => {
+        {employeeData.map((employee,index) => {
           return (
-            <div>
+            <div key={employee.name}>
               <div>
                 <Employee
                   employee={employee}
