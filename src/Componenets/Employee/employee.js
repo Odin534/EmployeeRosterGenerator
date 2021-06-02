@@ -16,7 +16,7 @@ class Employee extends React.Component {
 
   setShift = (event) => {
     event.preventDefault();
-    this.props.handleCallback(this.state)
+    this.props.handleCallback(this.state);
   };
   onChange = (event) => {
     this.setState({

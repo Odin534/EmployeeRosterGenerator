@@ -8,24 +8,20 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      employeeData: employeeData,
-      Header: Header,
+      employeeRosterData: [],
     };
   }
   handleCallback = (e) => {
-    this.state.employeeData.map((em) => {
-      if (em.name === e.name) {
-        this.setState({ em: e });
-      }
-    });
-    // console.log("Inside handleCallback method", this.state.employeeData);
+    console.log(1, e);
+    this.state.employeeRosterData.push(e);
+    console.log("Inside handleCallback method", this.state.employeeRosterData);
   };
 
   render() {
     return (
       <div>
         <h1>This is Home Component</h1>
-        {this.state.employeeData.map((employee) => {
+        {employeeData.map((employee) => {
           return (
             <div>
               <div>
@@ -39,11 +35,9 @@ class Home extends React.Component {
         })}
         <div>
           <CSVReport
-            employeedata={this.state.employeeData}
-            Header={this.state.Header}
-          >
-            
-          </CSVReport>
+            employeedata={this.state.employeeRosterData}
+            Header={Header}
+          ></CSVReport>
         </div>
       </div>
     );
